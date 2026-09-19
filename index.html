@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doména je dostupná</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --bg: #fafafa;
+        --text: #151515;
+        --muted: #777;
+        --border: #dedede;
+    }
+
+    body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 50px 24px;
+
+        background: var(--bg);
+        color: var(--text);
+
+        font-family: "Manrope", sans-serif;
+    }
+
+    main {
+        width: 100%;
+        max-width: 560px;
+        text-align: center;
+    }
+
+    .oops {
+        font-size: clamp(52px, 10vw, 82px);
+        line-height: 1;
+        letter-spacing: -4px;
+        font-weight: 800;
+
+        margin-bottom: 28px;
+    }
+
+    .domain {
+        font-size: clamp(23px, 5vw, 32px);
+        font-weight: 700;
+
+        margin-bottom: 10px;
+        word-break: break-word;
+    }
+
+    .message {
+        margin-bottom: 38px;
+
+        color: var(--muted);
+
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .message strong {
+        color: var(--text);
+        font-weight: 600;
+    }
+
+    form {
+        width: 100%;
+        max-width: 470px;
+
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    .field {
+        margin-bottom: 22px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 7px;
+
+        font-size: 12px;
+        font-weight: 700;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+
+        padding: 10px 0 12px;
+
+        border: none;
+        border-bottom: 1px solid var(--border);
+
+        background: transparent;
+
+        font-family: inherit;
+        font-size: 15px;
+        color: var(--text);
+
+        outline: none;
+
+        transition: border-color .2s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+        border-color: var(--text);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: #aaa;
+    }
+
+    textarea {
+        min-height: 85px;
+        resize: vertical;
+    }
+
+    button {
+        margin-top: 4px;
+
+        padding: 13px 23px;
+
+        border: none;
+        border-radius: 999px;
+
+        background: var(--text);
+        color: #fff;
+
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 600;
+
+        cursor: pointer;
+
+        transition:
+            transform .2s ease,
+            opacity .2s ease;
+    }
+
+    button:hover {
+        transform: translateY(-2px);
+        opacity: .85;
+    }
+
+    footer {
+        margin-top: 50px;
+
+        color: #aaa;
+        font-size: 11px;
+    }
+
+    @media (max-width: 600px) {
+        body {
+            align-items: flex-start;
+            padding-top: 60px;
+        }
+
+        .oops {
+            letter-spacing: -2px;
+        }
+    }
+</style>
+
+</head>
+
+<body>
+
+<main>
+
+<div class="oops">
+    Ooopsie!
+</div>
+
+<p class="message">
+    Táto doména sa zatiaľ nepoužíva.<br>
+    <strong>Máš záujem? Napíš mi.</strong>
+</p>
+
+<form
+    action="https://formspree.io/f/xqpaeppy"
+    method="POST"
+>
+
+    <input
+        type="hidden"
+        name="domain"
+        id="domainInput"
+    >
+
+    <div class="field">
+        <label for="email">E-mail</label>
+
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="vas@email.sk"
+            required
+        >
+    </div>
+
+    <div class="field">
+        <label for="message">Správa</label>
+
+        <textarea
+            id="message"
+            name="message"
+            placeholder="Mám záujem o doménu..."
+            required
+        ></textarea>
+    </div>
+
+    <button type="submit">
+        Odoslať →
+    </button>
+
+</form>
+
+<footer>
+    2026© <span id="year"></span>
+</footer>
+
+</main>
+
+</body>
+</html>
